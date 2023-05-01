@@ -4,24 +4,41 @@
 >>
 ##### First Method: Single Documents using ```InsertOne()```
 ```commandline
-db.posts.insertOne({ email: "kaustubhajgaonkar43@gmail.com",
- subject: "This is a test subject" , > message: "This is a test message",
- date: Date() }) 
+db.posts.insertOne({
+  title: "Post Title 1",
+  body: "Body of post.",
+  category: "News",
+  likes: 1,
+  tags: ["news", "events"],
+  date: Date()
+})
 ```
 #### Second Method: Multiple Documents using ```InsertMany()```
 ```commandline
-db.posts.insertMany([
-{ email: "test1@gmail.com",
-subject: "This is a test subject 1",
-message: "This is a test message 1",
-date: Date() },
-{ email: "test2@gmail.com",
-subject: "This is a test subject 2",
-message: "This is a test message 2",
-date: Date() },
-{ email: "test3@gmail.com",
-subject: "This is a test subject 3",
-message: "This is a test message 3",
-date: Date() }
+db.posts.insertMany([  
+  {
+    title: "Post Title 2",
+    body: "Body of post.",
+    category: "Event",
+    likes: 2,
+    tags: ["news", "events"],
+    date: Date()
+  },
+  {
+    title: "Post Title 3",
+    body: "Body of post.",
+    category: "Technology",
+    likes: 3,
+    tags: ["news", "events"],
+    date: Date()
+  },
+  {
+    title: "Post Title 4",
+    body: "Body of post.",
+    category: "Event",
+    likes: 4,
+    tags: ["news", "events"],
+    date: Date()
+  }
 ])
 ```

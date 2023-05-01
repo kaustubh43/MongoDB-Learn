@@ -15,4 +15,22 @@ Visual Representation of MongoDB:
 
 ### [Find Methods](Notes/Find.MD)
 
+### [Querying the data](./Notes/QueuryingData.MD)
+
+### [Update Data](./Notes/UpdateData.MD)
+
+### [Delete Documents](./Notes/Delete.MD)
+
+### [Query Operators](./Notes/QueryOperators.MD)
+
+### [Update Operators](./Notes/QueryOperators.MD)
+
+### [Aggregation Pipelines](./Notes/AggregationPipelines.MD)
+
+
+
+
+
+
+
 
