@@ -1,17 +1,15 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-    # aloha.testPrint('This is a test print')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+import certifi
+# import pymongo
+from pymongo import MongoClient
+import os
+ca = certifi.where()
+password = os.environ['APP_PASSWORD']
+uri = "mongodb+srv://kaustubhajgaonkar43:"+password+"@formsubmissions.ko4j1rf.mongodb.net/?retryWrites=true&w=majority"
+# Create a new client and connect to the server
+client = MongoClient(uri,  tlsCAFile=ca)
+# Send a ping to confirm a successful connection
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
