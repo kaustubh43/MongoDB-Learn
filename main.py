@@ -1,15 +1,27 @@
+import datetime
 import certifi
-# import pymongo
 from pymongo import MongoClient
 import os
-ca = certifi.where()
-password = os.environ['APP_PASSWORD']
-uri = "mongodb+srv://kaustubhajgaonkar43:"+password+"@formsubmissions.ko4j1rf.mongodb.net/?retryWrites=true&w=majority"
-# Create a new client and connect to the server
-client = MongoClient(uri,  tlsCAFile=ca)
-# Send a ping to confirm a successful connection
-try:
-    client.admin.command('ping')
-    print("Pinged your deployment. You successfully connected to MongoDB!")
-except Exception as e:
-    print(e)
+
+ca = certifi.where()  # Certificate
+password = os.environ['APP_PASSWORD']  # Take password from environment variable
+cluster = f"mongodb+srv://kaustubh43:{password}@cluster1.au46pco.mongodb.net/?retryWrites=true&w=majority"
+# Database name = todo_application
+# Collection name = todo
+
+client = MongoClient(cluster, tlsCAFile=ca)  # Connect to database
+
+db = client.todo_application
+# print database names
+# print(db.list_database_names())
+
+sample = {"name": "Kaustubh",
+          "text": "My first TEXT",
+          "status": "open",
+          "tags": ["python", "coding", "python-programming-language"],
+          "date": datetime.datetime.utcnow()}
+
+todo_temp = db.todo
+print(type(db.todo))
+
+result = todo_temp.insert_one(sample)
